@@ -11,6 +11,8 @@ config/database.yml
 /log/*
 !/log/.keep
 /tmp
+.byebug_history
+*.DS_Store
 
 *.gem
 *.rbc
