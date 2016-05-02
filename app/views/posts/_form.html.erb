@@ -1,0 +1,29 @@
+<%= form_for @post do |f| %>
+	<%#= f.error_notification %>
+	<%= @post.errors.full_messages.first if @post.errors.any? %>
+
+
+	<div class="form-group">
+		<%= f.label :content %>
+		<%= f.text_area :content, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :scheduled_at, "Your current Timezone is #{Time.zone.name}, schedule post at"%>
+		<%= f.text_field :scheduled_at, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.check_box :facebook %>
+		<%= f.label :facebook %>
+	</div>
+
+	<div class="form-group">
+		<%= f.check_box :twitter %>
+		<%= f.label :twitter %>
+	</div>
+
+	<div class="form-actions"><%= f.submit %></div>
+		
+	</div>
+<% end %>
