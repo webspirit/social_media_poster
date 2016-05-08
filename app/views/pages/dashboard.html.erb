@@ -1,8 +1,64 @@
 <div class="row">
+	<%= link_to "New Post", new_post_path, class: "btn btn-lg btn-primary pull-right" %>
+</div>
+<div class="row">
 	<div class="col-md-6 col-sm-12">
 		<h2 class="text-center">Upcoming posts</h2>
+		<% if Post.upcoming.empty? %>
+			<h4 class="text-center">No upcoming posts yet. Create <%= link_to "new", new_post_path %></h4>
+		<% else %>
+			<table class="table table-bordered">
+				<thead class="thead-inverse">
+			    <tr>
+			      <th>Posted At</th>
+			      <th>Content</th>
+			      <th>Facebook</th>
+			      <th>Twitter</th>
+			      <th></th>
+			    </tr>
+			  </thead>
+				<tbody>
+					<% Post.upcoming.each do |post| %>
+						<tr>
+							<td><%= post.scheduled_at.to_s(:full_date_time) %></td>
+							<td><%= post.content %></td>
+							<td><%= post.facebook ? "Yes" : "No" %></td>
+							<td><%= post.twitter ? "Yes" : "No" %></td>
+							<td><%= link_to "Edit", edit_post_path(post), class: "btn btn-warning" %></td>
+						</tr>
+						<% end %>
+					<% end %>
+				</tbody>
+			</table>
 	</div>
 	<div class="col-md-6 col-sm-12">
 		<h2 class="text-center">Already posted</h2>
+		<% if Post.posted.empty? %>
+			<h4 class="text-center">There are no posts posted yet.</h4>
+		<% else %>
+			<table class="table table-bordered">
+				<thead class="thead-inverse">
+			    <tr>
+			      <th>Posted At</th>
+			      <th>Content</th>
+			      <th>Facebook</th>
+			      <th>Twitter</th>
+			    </tr>
+			  </thead>
+				<tbody>
+					<% Post.posted.each do |post| %>
+						<tr>
+							<td><%= post.scheduled_at.to_s(:full_date_time) %></td>
+							<td><%= post.content %></td>
+							<td><%= post.facebook ? "Yes" : "No" %></td>
+							<td><%= post.twitter ? "Yes" : "No" %></td>
+						</tr>
+						<% end %>
+					<% end %>
+				</tbody>
+			</table>
 	</div>
+</div>
+
+<div class="row">
 </div>
