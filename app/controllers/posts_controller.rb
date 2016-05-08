@@ -16,6 +16,20 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def edit
+		@post = Post.find(params[:id])
+	end
+
+	def update
+		@post = Post.find(params[:id])
+		if @post.update_attributes(post_params)
+			flash[:success] = "Post updated."
+			redirect_to dashboard_path
+		else
+			render 'edit'
+		end
+	end
+
 	private
 	def post_params
 		params.require(:post).permit(:content, :scheduled_at, :state, :user_id, :facebook, :twitter)
