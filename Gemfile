@@ -19,13 +19,16 @@ gem 'quiet_assets'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Flexible authentication solution for Rails with Warden. 
 gem 'devise'
+
+# bootstrap-datetimepicker for the Rails 3.1+ asset pipeline
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
