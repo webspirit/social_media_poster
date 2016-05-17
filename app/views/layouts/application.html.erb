@@ -18,6 +18,13 @@
 </head>
 <body>
 	<%= render 'layouts/header' %>
+	
+	<% flash.each do |type, message |%>
+		<div class="alert alert-warning fade-in">
+			<button class="close" data-dismiss="alert">x</button>
+			<%= message %>
+		</div>
+	<% end %>
 
 	<div class='container'>
 		<%= yield %>
