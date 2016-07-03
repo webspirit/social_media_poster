@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Flexible authentication solution for Rails with Warden. 
 gem 'devise'
 
+# OmniAuth is a library that standardizes multi-provider authentication
+gem 'omniauth-twitter'
+
 # bootstrap-datetimepicker for the Rails 3.1+ asset pipeline
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'

@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :posts, dependent: :destroy
+  has_many :connections, dependent: :destroy
+
   validates_presence_of :time_zone
 
-  has_many :posts, dependent: :destroy
 end
